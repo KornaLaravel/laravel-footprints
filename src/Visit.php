@@ -2,7 +2,9 @@
 
 namespace Kyranb\Footprints;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Visit extends Model
 {
@@ -49,7 +51,7 @@ class Visit extends Model
     /**
      * Get the account that owns the visit.
      *
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     * @return BelongsTo
      */
     public function account()
     {
@@ -61,7 +63,7 @@ class Visit extends Model
     /**
      * Scope a query to only include previous visits.
      *
-     * @return \Illuminate\Database\Eloquent\Builder
+     * @return Builder
      */
     public function scopePreviousVisits($query, $footprint)
     {
@@ -71,7 +73,7 @@ class Visit extends Model
     /**
      * Scope a query to only include previous visits that have been unassigned.
      *
-     * @return \Illuminate\Database\Eloquent\Builder
+     * @return Builder
      */
     public function scopeUnassignedPreviousVisits($query, $footprint)
     {
@@ -81,7 +83,7 @@ class Visit extends Model
     /**
      * Scope a query to only include unassigned visits older than $days days
      *
-     * @return \Illuminate\Database\Eloquent\Builder
+     * @return Builder
      */
     public function scopePrunable($query, $days)
     {

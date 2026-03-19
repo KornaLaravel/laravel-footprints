@@ -40,7 +40,7 @@ class TrackRegistrationAttributionTest extends TestCase
 
         Bus::fake();
 
-        (new User)->trackRegistration(new Request());
+        (new User)->trackRegistration(new Request);
 
         Bus::assertNotDispatched(AssignPreviousVisits::class);
     }
