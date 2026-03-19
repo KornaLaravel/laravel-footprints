@@ -20,7 +20,7 @@ class TrackingFilter implements TrackingFilterInterface
     {
         $this->request = $request;
 
-        //Only track get requests
+        // Only track get requests
         if (! $this->request->isMethod('get')) {
             return false;
         }
@@ -77,7 +77,7 @@ class TrackingFilter implements TrackingFilterInterface
 
     /**
      * @param  string  $landing_page
-     * @return  array|bool
+     * @return array|bool
      */
     protected function disabledLandingPages($landing_page = null)
     {

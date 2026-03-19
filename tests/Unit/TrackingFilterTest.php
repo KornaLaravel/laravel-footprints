@@ -2,8 +2,10 @@
 
 namespace Kyranb\Footprints\Tests\Unit;
 
+use Illuminate\Foundation\Auth\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Config;
+use Jaybizzle\CrawlerDetect\CrawlerDetect;
 use Kyranb\Footprints\Tests\TestCase;
 use Kyranb\Footprints\TrackingFilter;
 
@@ -37,7 +39,7 @@ class TrackingFilterTest extends TestCase
     {
         Config::set('footprints.disable_on_authentication', true);
 
-        $user = new \Illuminate\Foundation\Auth\User;
+        $user = new User;
         $user->id = 1;
         $this->actingAs($user);
 
@@ -51,7 +53,7 @@ class TrackingFilterTest extends TestCase
     {
         Config::set('footprints.disable_on_authentication', false);
 
-        $user = new \Illuminate\Foundation\Auth\User;
+        $user = new User;
         $user->id = 1;
         $this->actingAs($user);
 
@@ -109,7 +111,7 @@ class TrackingFilterTest extends TestCase
 
     public function test_disabled_for_robots_tracking()
     {
-        if (! class_exists(\Jaybizzle\CrawlerDetect\CrawlerDetect::class)) {
+        if (! class_exists(CrawlerDetect::class)) {
             $this->markTestSkipped('jaybizzle/crawler-detect is not installed');
         }
 

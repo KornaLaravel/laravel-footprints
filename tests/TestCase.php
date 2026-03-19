@@ -3,7 +3,9 @@
 namespace Kyranb\Footprints\Tests;
 
 use Illuminate\Contracts\Http\Kernel as HttpKernel;
+use Illuminate\Foundation\Application;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Router;
 use Illuminate\Support\Facades\Route;
 use Kyranb\Footprints\FootprintsServiceProvider;
 use Symfony\Component\HttpFoundation\Request as SymfonyRequest;
@@ -15,7 +17,7 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
      *
      * More details at: https://github.com/orchestral/testbench#custom-service-provider
      *
-     * @param  \Illuminate\Foundation\Application  $app
+     * @param  Application  $app
      * @return array
      */
     protected function getPackageProviders($app)
@@ -37,7 +39,7 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
     /**
      * Define routes setup.
      *
-     * @param  \Illuminate\Routing\Router  $router
+     * @param  Router  $router
      * @return void
      */
     protected function defineRoutes($router)
@@ -57,7 +59,7 @@ abstract class TestCase extends \Orchestra\Testbench\TestCase
      * @param  array  $files
      * @param  array  $server
      * @param  string|null  $content
-     * @return \Illuminate\Http\Request
+     * @return Request
      */
     public function makeRequest($method, $uri, $parameters = [], $cookies = [], $files = [], $server = [], $content = null)
     {

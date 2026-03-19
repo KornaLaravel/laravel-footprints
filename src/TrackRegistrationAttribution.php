@@ -2,6 +2,7 @@
 
 namespace Kyranb\Footprints;
 
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Kyranb\Footprints\Jobs\AssignPreviousVisits;
@@ -24,7 +25,7 @@ trait TrackRegistrationAttribution
     /**
      * Get all of the visits for the user.
      *
-     * @return \Illuminate\Database\Eloquent\Collection
+     * @return Collection
      */
     public function visits()
     {
@@ -60,7 +61,7 @@ trait TrackRegistrationAttribution
     /**
      * The initial attribution data that eventually led to a registration.
      *
-     * @return \Illuminate\Database\Eloquent\Collection
+     * @return Collection
      */
     public function initialAttributionData()
     {
@@ -70,7 +71,7 @@ trait TrackRegistrationAttribution
     /**
      * The final attribution data before registration.
      *
-     * @return \Illuminate\Database\Eloquent\Collection
+     * @return Collection
      */
     public function finalAttributionData()
     {

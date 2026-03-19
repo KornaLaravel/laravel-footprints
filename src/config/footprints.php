@@ -1,5 +1,9 @@
 <?php
 
+use Kyranb\Footprints\Footprinter;
+use Kyranb\Footprints\TrackingFilter;
+use Kyranb\Footprints\TrackingLogger;
+
 return [
 
     /*
@@ -73,7 +77,7 @@ return [
     | TrackingFilterInterface.
     |
     */
-    'tracking_filter' => \Kyranb\Footprints\TrackingFilter::class,
+    'tracking_filter' => TrackingFilter::class,
 
     /*
     |--------------------------------------------------------------------------
@@ -85,7 +89,7 @@ return [
     | that the class must implement the TrackingLoggerInterface.
     |
     */
-    'tracking_logger' => \Kyranb\Footprints\TrackingLogger::class,
+    'tracking_logger' => TrackingLogger::class,
 
     /*
     |--------------------------------------------------------------------------
@@ -98,7 +102,7 @@ return [
     | the requests fingerprint - se Laravel Docs for this method.
     |
     */
-    'footprinter' => \Kyranb\Footprints\Footprinter::class,
+    'footprinter' => Footprinter::class,
 
     /*
     |--------------------------------------------------------------------------

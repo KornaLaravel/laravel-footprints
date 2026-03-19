@@ -164,9 +164,8 @@ class TrackingLoggerTest extends TestCase
         Config::set('footprints.async', false);
         Config::set('footprints.custom_parameters', ['affiliate_id']);
 
-        // Re-run migration to include the custom column
-        $this->artisan('migrate:fresh');
-        include_once __DIR__.'/../../database/migrations/create_footprints_table.php.stub';
+        // Re-create the table with the custom column
+        (new \CreateFootprintsTable)->down();
         (new \CreateFootprintsTable)->up();
 
         $request = $this->makeRequest('GET', '/test?affiliate_id=abc123');
