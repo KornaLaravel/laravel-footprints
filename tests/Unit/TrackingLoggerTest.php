@@ -72,7 +72,7 @@ class TrackingLoggerTest extends TestCase
     {
         Config::set('footprints.async', false);
 
-        $request = $this->makeRequest('GET', '/test', [], [], [], ['SERVER_NAME' => 'example.com']);
+        $request = $this->makeRequest('GET', 'http://example.com/test');
 
         $logger = new TrackingLogger;
         $logger->track($request);
